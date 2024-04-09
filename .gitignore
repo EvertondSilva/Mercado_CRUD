@@ -1,3 +1,9 @@
-/.venv
-comandos.txt
 # Caso o queira ocultar os dados sensíveis, adicionar o ".env" 
+# Arquivos de configuração
+*.pyc
+*.pyo
+*.bak
+*.swp
+
+# Arquivos de ambiente virtual
+/.venv
