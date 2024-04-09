@@ -1,2 +1,3 @@
 /.venv
-
+comandos.txt
+# Caso o queira ocultar os dados sensíveis, adicionar o ".env" 
