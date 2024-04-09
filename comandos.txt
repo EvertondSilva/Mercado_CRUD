@@ -2,11 +2,16 @@
 Set-ExecutionPolicy -Scope Process -Execution Bypass --modo ADM
 python -m venv .venv -- criar ambiente
 .\.venv\Scripts\activate -- ativa ambiente
-pip install django -- install django
+
 django-admin startproject setup . - iniciar um novo projeto
  python manage.py startapp mercado
 python manage.py runserver  - iniciar servidor 
 
-python manage.py migrate
+python manage.py migrate - cria modelo do banco
 python manage.py makemigrations - criar banco
+
+pip install python-decouple - libe para extrair dados seguros 
+pip install dj-database-url - string de conexão 
+pip install django -- install django
+
 pip install python-formatting-provider
