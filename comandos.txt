@@ -4,9 +4,9 @@ python -m venv .venv -- criar ambiente
 .\.venv\Scripts\activate -- ativa ambiente
 pip install django -- install django
 django-admin startproject setup . - iniciar um novo projeto
-
+ python manage.py startapp mercado
 python manage.py runserver  - iniciar servidor 
 
 python manage.py migrate
-python manage.py makemigrations
+python manage.py makemigrations - criar banco
 pip install python-formatting-provider
