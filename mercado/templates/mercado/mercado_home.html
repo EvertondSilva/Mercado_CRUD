@@ -9,9 +9,9 @@
   <body>
     <nav class="navbar bg-dark border-bottom border-body mb-3 " data-bs-theme="dark">
         <form class="container-fluid justify-content-start">
-          <button class="btn btn-outline-light me-5" type="button">Cadastrar Produto</button>
-          <button class="btn btn-outline-light me-5" type="button">Cadastrar Venda</button>
-          <button class="btn btn-outline-light me-5" type="button">Cadastra Compra</button>
+          <button href="#" class="btn btn-outline-light me-5" type="button">Cadastrar Produto</button>
+          <button a href="#" class="btn btn-outline-light me-5" type="button">Cadastrar Venda</button>
+          <button a href="#" class="btn btn-outline-light me-5" type="button">Cadastra Compra</button>
         </form>
       </nav>
       <main class="container">
@@ -25,22 +25,78 @@
               <th scope="col">Valor de Venda</th>
               <th scope="col">Quantidade do Estoque</th>
               <th scope="col">Codigo de Barras</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for produto in produtos  %}
+              <tr>
+                <th scope="row">{{ produto.pk }}</th>
+                <td>{{ produto.produto }}</td>
+                <td>{{ produto.valor_compra }}</td>
+                <td>{{ produto.valor_de_venda }}</td>
+                <td>{{ produto.quantidade_em_estoque }}</td>
+                <td>{{ produto.codigo_de_barrar }}</td>
+                <td> <a href="#" class="btn btn-primary">Alterar</a> </td>
+              </tr>
+            {% endfor %}
+            
+          </tbody>
+        </table>
+        <h1>Vendas</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Nome do produto</th>
+              <th scope="col">Valor da venda</th>
+              <th scope="col">Data da venda</th>
+              <th scope="col">Quantidade de itens</th>
+              <th scope="col">Cliente</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
             {% for vendas in venda  %}
               <tr>
                 <th scope="row">{{ vendas.pk }}</th>
-                <td>{{vendas.codigo_venda }}</td>
-                <td>{{ produto.valor_compra}}</td>
-                <td>{{ produto.valor_de_venda}}</td>
-                <td>{{ produto.quantidade_em_estoque}}</td>
-                <td>{{ produto.codigo_de_barrar}}</td>
+                <td>{{ vendas.produto_venda }}</td>
+                <td>{{ produto.fk }}</td>
+                <td>{{ vendas.data_venda }}</td>
+                <td>{{ vendas.quantidade_venda }}</td>
+                <td>{{ vendas.fornecedor }}</td>
+                <td> <a href="#" class="btn btn-primary">Alterar</a> </td>
               </tr>
             {% endfor %}
           </tbody>
         </table>
-
+        <h1>Compra </h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Nome do produto</th>
+              <th scope="col">Valor da Compra</th>
+              <th scope="col">Data da compra</th>
+              <th scope="col">Quantidade de itens</th>
+              <th scope="col">Fornecedor</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for compra in compras  %}
+              <tr>
+                <th scope="row">{{ compra.pk }}</th>
+                <td>{{ compra.produto_compra }}</td>
+                <td>{{ compra. }}</td>
+                <td>{{ compra.data_compra }}</td>
+                <td>{{ compra.quantidade_compra }}</td>
+                <td>{{ compra.cliente }}</td>
+                <td> <a href="#" class="btn btn-primary">Alterar</a> </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
 
       </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
