@@ -39,7 +39,8 @@ python manage.py runserver
 
 
 estrutura de pasta do projeto
- 1. migrations: 
+ 
+ 1. migrations: 
 Criação e atualização do banco de dados.
 
  2. templates\mercado:
