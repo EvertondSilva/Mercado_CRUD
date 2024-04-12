@@ -155,7 +155,7 @@ class ProdutoUpdateView(UpdateView):
     - success_url: O URL para redirecionar após a atualização bem-sucedida do produto.
     """
     model = Produto
-    fields = ["produto", "codigo_de_barrar", "valor_de_venda", "valor_compra", "quantidade_em_estoque"]
+    fields = ["produto", "codigo_de_barrar", "valor_de_venda", "valor_compra"]
     success_url = reverse_lazy("mercado_home")
 
 class CompraUpdateView(UpdateView):

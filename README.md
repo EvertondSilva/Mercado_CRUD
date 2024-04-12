@@ -27,7 +27,7 @@ pip install crispy-bootstrap5
 
 Gerenciamento do Banco de Dados
  1. Crie as Migrações de Modelo:
-python manage.py makemigrations
+python manage.py makemigrations nesse projeto já está criado(No changes detected)
 
  2. Execute as Migrações Iniciais:
 python manage.py migrate
