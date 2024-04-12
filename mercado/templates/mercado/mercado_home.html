@@ -9,9 +9,9 @@
   <body>
     <nav class="navbar bg-dark border-bottom border-body mb-3 " data-bs-theme="dark">
         <form class="container-fluid justify-content-start">
-          <button href="#" class="btn btn-outline-light me-5" type="button">Cadastrar Produto</button>
-          <button a href="#" class="btn btn-outline-light me-5" type="button">Cadastrar Venda</button>
-          <button a href="#" class="btn btn-outline-light me-5" type="button">Cadastra Compra</button>
+          <a href="{% url 'CadastroProduto' %}" class="btn btn-outline-light me-5" type="button">Cadastrar Produto</a>
+          <a href="{% url "CadastroVendas" %}" class="btn btn-outline-light me-5" type="button">Cadastrar Venda</a>
+          <a href="{% url "CadastroCompra" %}" class="btn btn-outline-light me-5" type="button">Cadastra Compra</a>
         </form>
       </nav>
       <main class="container">
@@ -37,7 +37,7 @@
                 <td>{{ produto.valor_de_venda }}</td>
                 <td>{{ produto.quantidade_em_estoque }}</td>
                 <td>{{ produto.codigo_de_barrar }}</td>
-                <td> <a href="#" class="btn btn-primary">Alterar</a> </td>
+                <td><a href="{% url "ProdutoUpdateView" pk=produto.pk %}" class="btn btn-primary">Alterar</a> </td>
               </tr>
             {% endfor %}
             
@@ -60,12 +60,13 @@
             {% for vendas in venda  %}
               <tr>
                 <th scope="row">{{ vendas.pk }}</th>
-                <td>{{ vendas.produto_venda }}</td>
-                <td>{{ produto.fk }}</td>
+                <td>{{ vendas.produto_venda.produto }}</td>
+                <td>{{ vendas.produto_venda.valor_de_venda }}</td>
                 <td>{{ vendas.data_venda }}</td>
                 <td>{{ vendas.quantidade_venda }}</td>
-                <td>{{ vendas.fornecedor }}</td>
-                <td> <a href="#" class="btn btn-primary">Alterar</a> </td>
+                <td>{{ vendas.cliente }}</td>
+                <td><a href="{% url "VendasUpdateView" pk=vendas.pk %}" class="btn btn-primary">Alterar</a> </td>
+                <td><a href="{% url "VendasDeleteView" pk=vendas.pk %}" class="btn btn-danger">Excluir</a> </td>
               </tr>
             {% endfor %}
           </tbody>
@@ -86,13 +87,14 @@
           <tbody>
             {% for compra in compras  %}
               <tr>
-                <th scope="row">{{ compra.pk }}</th>
-                <td>{{ compra.produto_compra }}</td>
-                <td>{{ compra. }}</td>
+                <th scope="row">{{ compra.codigo_compra }}</th>
+                <td>{{  compra.produto_compra.produto }}</td>
+                <td>{{ compra.produto_compra.valor_compra }}</td>
                 <td>{{ compra.data_compra }}</td>
                 <td>{{ compra.quantidade_compra }}</td>
-                <td>{{ compra.cliente }}</td>
-                <td> <a href="#" class="btn btn-primary">Alterar</a> </td>
+                <td>{{ compra.fornecedor }}</td>
+                <td><a href="{% url "CompraUpdateView" pk=compra.pk %}" class="btn btn-primary">Alterar</a> </td>
+                <td><a href="{% url "CompraDeleteView" pk=compra.pk %}" class="btn btn-danger">Excluir</a> </td>
               </tr>
             {% endfor %}
           </tbody>

@@ -1,3 +1,5 @@
+{%load crispy_forms_tags %}
+
 <!doctype html>
 <html lang="pt_br">
   <head>
@@ -9,17 +11,21 @@
   <body>
     <nav class="navbar bg-dark border-bottom border-body mb-3 " data-bs-theme="dark">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1 bg-dark border-bottom border-body" data-bs-theme="dark">Cadastro de Produto</span>
+          <span class="navbar-brand mb-0 h1 bg-dark border-bottom border-body" data-bs-theme="dark">Cadastro de Compra</span>
         </div>
       </nav>
       <main class="container">
-        <h1> Nova Compra </h1>
-        
+        <main class="container">
+          {% if compra.pk %}
+            <h1> Editar compra </h1>
+          {% else %}
+            <h1> Nova Compra </h1>
+          {% endif %}
         <form method="POST">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit"> Salvar </button>
-        </form>
+          {% csrf_token %}
+          {{ form| crispy  }}
+          <button type="submit"class="btn btn-primary"> Salvar </button>
+      </form>
 
 
       </main>
